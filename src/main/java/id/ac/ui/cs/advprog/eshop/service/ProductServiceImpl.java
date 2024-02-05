@@ -53,4 +53,20 @@ public class ProductServiceImpl implements ProductService{
         }
         return false;
     }
+
+    @Override
+    public Product edit(Product product, String id){
+        Iterator<Product> products = productRepository.findAll();
+
+        int index = 0;
+        while(products.hasNext()){
+            Product current = products.next();
+            if(current.getProductId().equals(id)){
+                product.setProductId(current.getProductId());
+                break;
+            }
+            index++;
+        }
+        return productRepository.replace(product, index);
+    }
 }

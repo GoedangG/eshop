@@ -64,4 +64,44 @@ public class ProductRepositoryTest {
         assertEquals(product2.getProductId(), savedProduct.getProductId());
         assertFalse(productIterator.hasNext());
     }
+
+    // Exercise
+    @Test
+    void testDeleteProduct(){
+        Product productAK = new Product();
+        productAK.setProductId("eb558e9f-1c39-460e-8860-71af6af63bd6");
+        productAK.setProductName("AK-47 Vulcan");
+        productAK.setProductQuantity(2);
+        productRepository.create(productAK);
+
+        Product productGlock = new Product();
+        productGlock.setProductId("a0f9de46-90b1-437d-a0bf-d0821dde9096");
+        productGlock.setProductName("Glock Fade");
+        productGlock.setProductQuantity(1);
+        productRepository.create(productGlock);
+
+        //Delete
+        productRepository.delete(productAK);
+
+        Iterator<Product> productIterator = productRepository.findAll();
+        Product currentProduct = productIterator.next();
+        assertEquals("a0f9de46-90b1-437d-a0bf-d0821dde9096", currentProduct.getProductId());
+        assertNotEquals("eb558e9f-1c39-460e-8860-71af6af63bd6", currentProduct.getProductId());
+    }
+
+    @Test
+    void testEditProduct(){
+        Product product = new Product();
+        product.setProductId("cba5ef02-081c-44c3-a3c8-a49bb37ef505");
+        product.setProductName("Hyundai Creta");
+        product.setProductQuantity(1);
+        productRepository.create(product);
+
+        //Edit
+        product.setProductQuantity(2);
+
+        Iterator<Product> productIterator = productRepository.findAll();
+        Product current = productIterator.next();
+        assertNotEquals(1, current.getProductQuantity());
+    }
 }

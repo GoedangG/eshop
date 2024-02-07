@@ -10,12 +10,12 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
 
 @SpringBootTest(webEnvironment = RANDOM_PORT)
 @ExtendWith(SeleniumJupiter.class)
-public class HomePageFunctionalTest {
+class HomePageFunctionalTest {
     @LocalServerPort
     private int serverPort;
 
@@ -25,24 +25,23 @@ public class HomePageFunctionalTest {
     private String baseUrl;
 
     @BeforeEach
-    void setupTest(){
+    void setupTest() {
         baseUrl = String.format("%s:%d", testBaseUrl, serverPort);
     }
 
     @Test
-    void pageTitle_isCorrect(ChromeDriver driver) throws Exception{
-        //exercise
+    void pageTitle_isCorrect(ChromeDriver driver) throws Exception {
         driver.get(baseUrl);
+
         String pageTitle = driver.getTitle();
 
-        //verify
         assertEquals("ADV Shop", pageTitle);
     }
 
     @Test
-    void welcomeMessage_homePage_isCorrect(ChromeDriver driver) throws Exception{
-        //exercise
+    void welcomeMessage_homePage_isCorrect(ChromeDriver driver) throws Exception {
         driver.get(baseUrl);
+
         String welcomeMessage = driver.findElement(By.tagName("h3")).getText();
 
         assertEquals("Welcome", welcomeMessage);

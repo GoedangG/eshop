@@ -9,3 +9,5 @@ You already implemented two new features using Spring Boot. Check again your sou
 2. untuk secure coding, saya menggunakan "POST" method untuk membuat products.
 
 Pada intinya, kedepannya saya akan meluangkan waktu untuk mengoreksi kembali code-code yang sudah saya tulis, mencoba untuk memperbaiki jika ada kesalahan dan juga agar lebih efisien serta clean code.
+
+## REFLEKSI 2

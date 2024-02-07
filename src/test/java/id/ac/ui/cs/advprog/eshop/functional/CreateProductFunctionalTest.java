@@ -45,7 +45,7 @@ public class CreateProductFunctionalTest {
         inputQuantity.clear();
         inputQuantity.sendKeys(String.valueOf(productQuantity));
 
-        WebElement submit = driver.findElement(By.id("btn"));
+        WebElement submit = driver.findElement(By.id("button"));
         submit.click();
 
         assertEquals(productListUrl, driver.getCurrentUrl());

@@ -7,7 +7,7 @@ on:
 
 jobs:
   test:
-    name: Run tests
+    name: Run test
     runs-on: ubuntu-22.04
     steps:
       - name: Check out the Git repository
@@ -21,4 +21,4 @@ jobs:
       - name: Set gradlew as executable
         run: chmod +x ./gradlew
       - name: Run unit tests
-        run: ./gradlew tests
+        run: ./gradlew test

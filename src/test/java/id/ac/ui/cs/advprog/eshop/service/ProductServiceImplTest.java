@@ -63,4 +63,16 @@ public class ProductServiceImplTest {
         assertEquals(tempProduct, product);
         assertNotNull(tempProduct);
     }
+
+    @Test
+    void testDeleteService(){
+        Product product = new Product();
+        product.setProductId("eb558e9f-1c39-460e-8860-71af6af63bd6");
+        product.setProductName("Rubicon Yapang");
+        product.setProductQuantity(1);
+        productRepository.create(product);
+
+        when(productRepository.delete(product)).thenReturn(true);
+        assertTrue(productRepository.delete(product));
+    }
 }

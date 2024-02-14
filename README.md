@@ -19,3 +19,12 @@ Pada intinya, kedepannya saya akan meluangkan waktu untuk mengoreksi kembali cod
     - Jawab: Membuat kelas baru untuk functional test dapat menjadi pilihan yang baik, namun bisa saja terjadi duplikasi code, potensi dependensi test, dan nama test case yang kurang jelas. Cara yang saya terapkan untuk membuat clean code sebagai berikut:
       - Menamai test case dengan jelas dan deskriptif terhadap apa yang dites.
       - Mengurangi duplikasi code dengan mengambil instance variabel kedalam utility class yang terpisah atau base test class.
+
+## REFLEKSI 3
+1. List the code quality issue(s) that you fixed during the exercise and explain your strategy on fixing them.
+   - Menghapus beberapa import yang tidak digunakan
+   - Penggunaan nama variabel diusahakan mendeskripsikan apa isi variabel tersebut
+   - Menghapus public modifier yang tidak penting
+   
+2. Look at your CI/CD workflows (GitHub)/pipelines (GitLab). Do you think the current implementation has met the definition of Continuous Integration and Continuous Deployment? 
+   - Menurut saya implementasi ci/cd yang sudah saya buat memenuhi definisi dari ci/cd itu sendiri. Hal ini dikarenakan code yang saya buat telah terintegrasi dengan sonarcloud, scorecard dan koyeb yang akan ter-deploy secara otomatis. Menurut saya sendiri itu sudah cukup memenuhi standart yang telah ditetapkan.

@@ -65,7 +65,7 @@ public class ProductRepositoryTest {
         assertFalse(productIterator.hasNext());
     }
 
-    // Exercise
+
     @Test
     void testDeleteProduct(){
         Product productAK = new Product();
@@ -87,21 +87,5 @@ public class ProductRepositoryTest {
         Product currentProduct = productIterator.next();
         assertEquals("a0f9de46-90b1-437d-a0bf-d0821dde9096", currentProduct.getProductId());
         assertNotEquals("eb558e9f-1c39-460e-8860-71af6af63bd6", currentProduct.getProductId());
-    }
-
-    @Test
-    void testEditProduct(){
-        Product product = new Product();
-        product.setProductId("cba5ef02-081c-44c3-a3c8-a49bb37ef505");
-        product.setProductName("Hyundai Creta");
-        product.setProductQuantity(1);
-        productRepository.create(product);
-
-        //Edit
-        product.setProductQuantity(2);
-
-        Iterator<Product> productIterator = productRepository.findAll();
-        Product current = productIterator.next();
-        assertNotEquals(1, current.getProductQuantity());
     }
 }

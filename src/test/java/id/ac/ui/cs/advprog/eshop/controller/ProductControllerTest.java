@@ -50,4 +50,60 @@ public class ProductControllerTest {
         verify(productService).create(product);
         verifyNoMoreInteractions(productService);
     }
+
+    @Test
+    void testEditProductGet(){
+        Product product = new Product();
+        String testId = "123";
+        when(productService.get(testId)).thenReturn(product);
+
+        // Act
+        String viewName = productController.editProductPage(model, testId);
+
+        // Assert
+        assertEquals("editProduct", viewName, "View name should match");
+        verify(model).addAttribute("product", product);
+        verifyNoMoreInteractions(model);
+    }
+
+    @Test
+    void testEditProductPost(){
+        String testId = "123";
+        Product product = new Product();
+        when(productService.edit(product, testId)).thenReturn(product);
+
+        String redirectUrl = productController.editProductPost(product, model, testId);
+
+        assertEquals("redirect:/product/list", redirectUrl, "Redirect URL should match");
+        verify(productService).edit(product, testId);
+        verifyNoMoreInteractions(productService);
+    }
+
+    @Test
+    void testDeleteProduct(){
+        // Arrange
+        String testId = "123";
+        Product product = new Product();
+        when(productService.delete(testId)).thenReturn(true);
+
+        // Act
+        String redirectUrl = productController.deleteProductPost(product, model, testId);
+
+        // Assert
+        assertEquals("redirect:/product/list", redirectUrl, "Redirect URL should match");
+        verify(productService).delete(testId);
+        verifyNoMoreInteractions(productService);
+    }
+
+    @Test
+    void testProductList(){
+        List<Product> productList = new ArrayList<>();
+        when(productService.findAll()).thenReturn(productList);
+
+        String viewName = productController.productListPage(model);
+
+        assertEquals("productList", viewName, "View name should match");
+        verify(model).addAttribute("products", productList);
+        verifyNoMoreInteractions(model);
+    }
 }

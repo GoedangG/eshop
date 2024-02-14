@@ -60,7 +60,6 @@ jobs:
           ./gradlew build
           chmod +x gradlew
 
-
       - name: Analyze with SonarCloud
 
         # You can pin the exact commit or the version.

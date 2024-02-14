@@ -40,12 +40,15 @@ public class ProductServiceImplTest {
     @Test
     void testEditService(){
         Product testProduct = new Product();
-        testProduct.setProductId("eb558e9f-1c39-460e-8860-71af6af63bd6");
-        testProduct.setProductName("Vega-R Aqmal");
-        testProduct.setProductQuantity(1);
+        String productId = ("eb558e9f-1c39-460e-8860-71af6af63bd6");
+        String productName = ("Vega-R Aqmal");
+        int productQuantity = 1;
+        testProduct.setProductQuantity(productQuantity);
+        testProduct.setProductName(productName);
+        testProduct.setProductId(productId);
 
-        Product editProduct = productService.edit(testProduct, "1e6d6c25-bff3-4fd5-9f7d-5a8e79e1018e");
-        assertNotEquals(editProduct.getProductId(), testProduct.getProductId());
+        Product editProduct = productService.edit(testProduct, productId);
+        assertEquals(editProduct.getProductId(), testProduct.getProductId());
     }
 
     @Test
@@ -86,6 +89,6 @@ public class ProductServiceImplTest {
         when(productRepository.delete(testProduct)).thenReturn(true);
 
         productService.create(testProduct);
-        assertTrue(productService.delete(testProduct.getProductId()));
+        assertEquals(true, productService.delete(testProduct.getProductId()));
     }
 }

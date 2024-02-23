@@ -24,7 +24,7 @@ public class HomePageControllerTest {
 
     @Test
     void testHomePageController(){
-        String expectedName = "homePage";
+        String expectedName = "HomePage";
 
         assertEquals(expectedName, homePageController.homePage());
         verify(model, times(0)).addAttribute(anyString(), any());

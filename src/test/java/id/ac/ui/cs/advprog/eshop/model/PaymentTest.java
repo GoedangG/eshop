@@ -46,7 +46,7 @@ public class PaymentTest {
         Payment payment = new Payment("eb558e9f-1c39-460e-8860-71af6af63bd6", "VOUCHER", this.paymentData);
         this.paymentData.clear();
         assertThrows (IllegalArgumentException.class, () -> {
-            ayment.setPaymentData(this.paymentData);
+            payment.setPaymentData(this.paymentData);
         });
     }
 

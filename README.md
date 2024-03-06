@@ -42,3 +42,11 @@ Pada intinya, kedepannya saya akan meluangkan waktu untuk mengoreksi kembali cod
    
 3. Explain the disadvantages of not applying SOLID principles to your project with examples.
    - Jawab: Seperti yang saya jelaskan pada nomer 2, ketika tidak mengimplementasikan SOLID principles, code saya jauh lebih sulit dibaca dibandingkan ketika mengimplementasikan SOLID.
+
+## TUTORIAL 4
+##### REFLEKSI
+1. Reflect based on Percival (2017) proposed self-reflective questions (in “Principles and Best Practice of Testing” submodule, chapter “Evaluating Your Testing Objectives”), whether this TDD flow is useful enough for you or not. If not, explain things that you need to do next time you make more tests.
+   - Jawab:  Menurut saya sangatlah berguna walaupun sulit untuk diimplementasikan pada saat pertama kali. Sejujurnya saya belum terbiasa untuk membuat testing terlebih dahulu sebelum implementasi class model/repository/dll nya.
+   
+2. You have created unit tests in Tutorial. Now reflect whether your tests have successfully followed F.I.R.S.T. principle or not. If not, explain things that you need to do the next time you create more tests.
+   - Jawab: Saya sendiri tidak terlalu yakin apakah sudah terimplementasi dengan baik atau belum, karena pada code coverage yang disediakan sonarcloud pun saya belum mencapai 100%.

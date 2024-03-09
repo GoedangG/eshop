@@ -1,5 +1,6 @@
 package id.ac.ui.cs.advprog.eshop.model;
 
+import enums.PaymentMethod;
 import enums.PaymentStatus;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -24,7 +25,7 @@ public class PaymentTest {
         assertEquals("VOUCHER", payment.getMethod());
         assertEquals("REJECTED", payment.getStatus());
         assertEquals(PaymentStatus.REJECTED.getValue(), payment.getStatus());
-        assertSame(this.paymentData, payment.getPaymentData);
+        assertSame(this.paymentData, payment.getPaymentData());
     }
 
     @Test
@@ -34,7 +35,7 @@ public class PaymentTest {
         assertEquals("VOUCHER", payment.getMethod());
         assertEquals("SUCCESS", payment.getStatus());
         assertEquals(PaymentStatus.SUCCESS.getValue(), payment.getStatus());
-        assertSame(this.paymentData, payment.getPaymentData);
+        assertSame(this.paymentData, payment.getPaymentData());
     }
 
     @Test
@@ -55,8 +56,8 @@ public class PaymentTest {
 
     @Test
     void testSetStatusToInvalid(){
-        Payment payment = new Payment("eb558e9f-1c39-460e-8860-71af6af63bd6", "VOUCHER", this.paymentData);
-        payment.setStatus("INVALID");
-        assertEquals("INVALID", payment.getStatus);
+        assertThrows(IllegalArgumentException.class, () -> {
+            Payment payment = new Payment("13652556-012a-4c07-b546-54eb1396d79b", PaymentMethod.VOUCHER_CODE.getValue(), this.paymentData, "INVALID");
+        });
     }
 }

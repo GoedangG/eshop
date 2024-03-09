@@ -16,7 +16,6 @@ public class Payment {
         this.id = id;
         this.method = method;
         this.paymentData = paymentData;
-        this.status = "REJECTED";
         this.status = PaymentStatus.REJECTED.getValue();
     }
 

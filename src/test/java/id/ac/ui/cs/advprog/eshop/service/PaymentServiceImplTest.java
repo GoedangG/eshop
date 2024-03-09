@@ -48,7 +48,7 @@ public class PaymentServiceImplTest {
         products.add(product);
 
         orders = new ArrayList<>();
-        Order order = new Order("13652556-012a-4c07-b546-54eb1396d79b", products, 1708560000L, "Bambang Kartono");
+        Order order = new Order("eb558e9f-1c39-460e-8860-71af6af63bd6", products, 1708560000L, "Bambang Kartono");
         orders.add(order);
 
         payments = new ArrayList<>();

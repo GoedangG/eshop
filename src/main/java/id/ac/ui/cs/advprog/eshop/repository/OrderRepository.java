@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class OrderRepository {
+public class OrderRepository implements OrderRepositoryInterface{
     private List<Order> orderData = new ArrayList<>();
     public Order save(Order order) {
         int i = 0;
